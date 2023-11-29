@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active{
+    color: rgb(158, 255, 155);
+}
+
+/* carosole */
+.thumbs {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* html{
+    background: no-repeat center url('https://img.freepik.com/free-vector/abstract-classic-blue-screensaver_23-2148421853.jpg?w=740&t=st=1700853833~exp=1700854433~hmac=981ca4bd5d3dd2c293e69654c897df67f3a4dff296f5b90edd25806d4f756a20');
+    background-size: cover;
+} */
+
+
+/* reviwes */
+
