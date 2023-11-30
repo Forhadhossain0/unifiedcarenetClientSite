@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 
 const Authprovider = ({ children }) => {
   const [loader, setLoader] = useState(true);
-  const [user, setUser] = useState(); 
+  const [user, setUser] = useState([]); 
   const axiosPublic = useAxiosPublic()
 
   const createUser = (email, password) => {

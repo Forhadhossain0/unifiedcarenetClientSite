@@ -20,7 +20,7 @@ const {data:professionalsInterest, refetch}  = useQuery({
         return res.data
     }
 })  
-console.log(professionalsInterest , 'professionalsInterest')
+// console.log(professionalsInterest , 'professionalsInterest')
 
 
 
@@ -81,7 +81,6 @@ console.log(professionalsInterest , 'professionalsInterest')
 
 
 
-
     return (
         <div data-aos="fade-left"  data-aos-duration="3000" className=" bg-[white] mx-auto mt-5  w-[95%] pb-10">
             
@@ -114,7 +113,7 @@ console.log(professionalsInterest , 'professionalsInterest')
                     <tr key={professionalsInterest._id} className="text-gray-500 "> 
 
                     <th><img className="rounded-full w-[60px] h-[60px] border-teal-400 border-2" src={professionalsInterest?.professionalsBio[0].photo} alt="" /></th>
-                    <td><Link to={'/dashboard/proHome'}> <h1 className="font-bold underline uppercase">{professionalsInterest?.professionalsBio[0].name }</h1></Link></td>
+                    <td><Link to={`/dashboard/proHome/${professionalsInterest?.professionalsBio[0]._id}`}> <h1 className="font-bold underline uppercase">{professionalsInterest?.professionalsBio[0].name }</h1></Link></td>
                     <td><h1 className="font-bold">{professionalsInterest?.campData?.campname  }</h1> </td>
                     <td><h1 className="font-bold">{professionalsInterest?.campData?.participant || 0  }</h1> </td>
                     <td><h1 className="font-bold">{professionalsInterest?.campData?.venuelocation }</h1> </td>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-    baseURL: 'unifiedcarenet-backend.vercel.app'
+    baseURL: 'https://unifiedcarenet-backend.vercel.app'
  })
 
 const useAxiosPublic = () => {

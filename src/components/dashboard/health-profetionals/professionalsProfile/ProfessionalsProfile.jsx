@@ -84,10 +84,21 @@ console.log(professionalsInterest , 'professionalsInterest')
   },[axiosPublic])
   
 
+      // user role bsed button toggle 
+      const {data:hasAllUsers}  = useQuery({
+        queryKey:['hasAllUsers'],
+        queryFn: async() =>{
+            const res = await axiosPublic.get('/users')
+            return res.data
+        }
+      }) 
+      const use = hasAllUsers?.filter(x=> (x.email) === user?.email )
+      const pRole = use?.find(x => x.role === 'professionals') !== undefined;
+
   // console.log(data, 'data')  
 
   const checkUserAuth = data?.find(x=> x?.primaryEmail === user?.email); 
-  const checkForPostOrPatch= checkUserAuth?.primaryEmail === user?.email;
+  const checkForPostOrPatch= checkUserAuth?.primaryEmail === user?.email ;
   // console.log(checkUserAuth._id, '1')
 
  
@@ -107,7 +118,7 @@ console.log(professionalsInterest , 'professionalsInterest')
         <div className="relative  shadow-lg mx-auto h-[360px] w-[390px] bg-white">
         <div  className='absolute  right-[7rem] top-6'>
           
-           {checkForPostOrPatch ? 
+           {checkForPostOrPatch || pRole ? 
                                   isEditing  ?  <button onClick={handleSave} className="text-2xl hover:text-rose-500">  <BiSolidSave />  </button> 
                                              : <button onClick={() => setIsEditing(true)} className="text-2xl hover:text-rose-500"> <FaUserEdit /> </button>
                  
@@ -115,7 +126,7 @@ console.log(professionalsInterest , 'professionalsInterest')
             }           
 
          </div>
-          <img  className="absolute left-[120px] rounded-full border-2 border-[#12ffff] h-[130px] w-[130px] -top-[70px]"  src={user?.photoURL || "https://media.istockphoto.com/id/885234758/vector/male-avatar-profile-picture-silhouette-light-shadow.jpg?s=170x170&k=20&c=JicnWZ37HVK1gaRfhacddrkdOlwl0b41SzUNVJYEGjY="}  alt="" />
+          <img  className="absolute left-[120px] rounded-full border-2 border-[#12ffff] h-[130px] w-[130px] -top-[70px]"  src={checkUserAuth?.photo || "https://media.istockphoto.com/id/885234758/vector/male-avatar-profile-picture-silhouette-light-shadow.jpg?s=170x170&k=20&c=JicnWZ37HVK1gaRfhacddrkdOlwl0b41SzUNVJYEGjY="}  alt="" />
           <div className="shadow  mx-auto ">
             <div className="mt-16  h-[375px]  font-semibold capitalize w-full">
 

@@ -16,7 +16,7 @@ const UpcommingCamp = () => {
     AOS.init()
 
     const axiosPublic = useAxiosPublic()
-    const [camp,setCamp] = useState()
+    const [camp,setCamp] = useState([])
     const {user} = useAuth()
     
     useEffect(()=>{

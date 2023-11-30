@@ -21,10 +21,10 @@ const Banner = () => {
                     <img className="h-full" src="https://img.freepik.com/free-photo/african-american-doctor-senior-man-communicating-hospital-waiting-room-while-wearing-face-masks_637285-11252.jpg?w=740&t=st=1700835026~exp=1700835626~hmac=b39cd77ae8c7e7fbf64fb3ce4053ebd30878b2208e7600c0b8ea71538dce4ee0" />
                     <div data-aos="fade-right" className="absolute  bg-[rgb(0,0,0,0.40)] top-0 flex justify-center w-full items-center h-full">
                        <div className="space-y-3 mt-2">
-                       <h2 data-aos="fade-left" className=" text-6xl uppercase font-bold text-white">Unified<span className="text-red-500">+</span>CareNet</h2>
-                          <p data-aos="fade-right" className="text-lg mx-auto pb-5 md:w-1/2 text-white">get help and give us your problems to be a happy life, Our professional team will take care of you, we value your time and health.  </p>
-                          <Link data-aos="fade-left"  data-aos-duration="3000" to={'/contact'}> <button className="btn rounded h-[53px] px-10 text-white capitalize  font-semibold  btn-info mx-5  gap-1">Get in touch <FaRegArrowAltCircleRight /> </button> </Link>
-                          <Link data-aos="fade-right"  data-aos-duration="3000"  to={'/availablecamp'}> <button className="btn rounded h-[53px] px-10  bg-white border-none  font-semibold capitalize btn-info mx-5 ">Read more +</button></Link>
+                       <h2 data-aos="fade-left" className=" md:text-6xl text-xl uppercase font-bold text-white">Unified<span className="text-red-500">+</span>CareNet</h2>
+                          <p data-aos="fade-right" className="md:text-lg mx-auto pb-5 md:w-1/2 text-white">get help and give us your problems to be a happy life, Our professional team will take care of you, we value your time and health.  </p>
+                          <Link data-aos="fade-left"  data-aos-duration="3000" to={'/contact'}> <button className="btn rounded md:h-[53px] md:px-10 text-white capitalize  font-semibold  btn-info md:mx-5 mx-2  gap-1">Get in touch <FaRegArrowAltCircleRight /> </button> </Link>
+                          <Link data-aos="fade-right"  data-aos-duration="3000"  to={'/availablecamp'}> <button className="btn rounded md:h-[53px] md:px-10  bg-white border-none  font-semibold capitalize btn-info md:mx-5 mx-2 ">Read more +</button></Link>
                        </div>
                     </div>
                 </div>

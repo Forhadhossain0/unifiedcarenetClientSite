@@ -21,7 +21,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
-    const [error,setError] = useState()
+    const [error,setError] = useState([])
     // console.log('from:', from);
 
     const onSubmit = data => {

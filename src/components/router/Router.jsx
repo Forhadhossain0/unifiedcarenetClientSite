@@ -63,7 +63,7 @@ const Router = createBrowserRouter([
         {
           path:'/campdetails/:id',
           element: <Privetroute> <Campdetails></Campdetails> </Privetroute>  ,
-          loader: ({params}) => fetch(`unifiedcarenet-backend.vercel.app/camp/${params.id}`)
+          loader: ({params}) => fetch(`https://unifiedcarenet-backend.vercel.app/camp/${params.id}`)
         }
         ,        
         {
@@ -125,7 +125,7 @@ const Router = createBrowserRouter([
         {
           path:'updatecamp/:id',
           element: <UpdateCamp></UpdateCamp>,
-          loader: ({params}) => fetch(`unifiedcarenet-backend.vercel.app/camp/${params.id}`)
+          loader: ({params}) => fetch(`https://unifiedcarenet-backend.vercel.app/camp/${params.id}`)
 
         },
         {

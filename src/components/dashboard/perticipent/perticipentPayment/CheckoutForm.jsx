@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const CheckoutForm = () => {
 
-  const [message,setMessage] = useState();
+  const [message,setMessage] = useState([]);
   const [clientSecret,setClientSecret] = useState('');
   const stripe = useStripe();
   const elements = useElements();

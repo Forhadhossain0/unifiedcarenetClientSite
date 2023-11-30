@@ -14,7 +14,7 @@ const AvailableCamp = () => {
 
 
     const axiosPublic = useAxiosPublic()
-    const [camp,setCamp] = useState()
+    const [camp,setCamp] = useState([ ])
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOrder, setSortOrder] = useState('asc'); 
 
@@ -24,7 +24,7 @@ const AvailableCamp = () => {
         .then(res=>{
             setCamp(res.data)
         })
-    },[])
+    },[axiosPublic])
     console.log(camp)
 
 

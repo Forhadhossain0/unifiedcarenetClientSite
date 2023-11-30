@@ -18,7 +18,7 @@ const Register = () => {
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
 
-    const [error,setError] = useState()
+    const [error,setError] = useState([])
 
     const onSubmit = data => {
         const email = data.email.toLowerCase();

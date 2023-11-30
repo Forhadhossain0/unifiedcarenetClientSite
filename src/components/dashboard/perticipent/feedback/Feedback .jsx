@@ -72,7 +72,7 @@ const handleSubmit = (e) =>{
 
                      <div className='space-x-3 flex justify-center pb-8 pt-5 cursor-pointer'>
     
-                        {stars.map((_, index) => {
+                        {stars?.map((_, index) => {
                           return ( <FaStar  key={index}  size={26} onClick={() => handleClick(index + 1)}
                                         color={(currentValue) > index ? colors.orange : colors.grey}  />
                                  )

@@ -15,7 +15,7 @@ const PopularCamp = () => {
 
 
     const axiosPublic = useAxiosPublic()
-    const [camp,setCamp] = useState()
+    const [camp,setCamp] = useState([])
 
     useEffect(()=>{
         axiosPublic.get('/camp')

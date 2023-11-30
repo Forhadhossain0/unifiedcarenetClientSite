@@ -13,7 +13,7 @@ AOS.init()
 
 const axiosPublic = useAxiosPublic()    
 
-const [reviews,setReviews] = useState()
+const [reviews,setReviews] = useState([])
 useEffect(()=>{
     axiosPublic.get('/reviews')
     .then(res=>{
