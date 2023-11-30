@@ -27,7 +27,7 @@ console.log(payment,'manag org camp')
 const handlePaymentStatus = (id)=>{
  console.log(id)
     Swal.fire({
-        title: "Are you sure to pay ?",
+        title: "Are you sure to confirm ?",
         text: "You won't be able to retrun this!",
         icon: "warning",
         showCancelButton: true,
@@ -41,7 +41,7 @@ const handlePaymentStatus = (id)=>{
             .then(res=> {
                 if(res?.data?.modifiedCount > 0){
                     refetch()  
-                  Swal.fire({ title: "success!",  text: "payment has been Confirmed.", icon: "success"  });
+                  Swal.fire({ title: "success!",  text: "sucessfully has been Confirmed.", icon: "success"  });
                 }
             })
 

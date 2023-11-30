@@ -5,10 +5,13 @@ import { FaCaravan } from "react-icons/fa";
 import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../custoomhooks/useAuth";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import ManageInterestedCamp from "../manageInterestedCamp/ManageInterestedCamp";
 
 
 const OrganizerHome = () => {
+  AOS.init()
     const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
 
@@ -29,14 +32,16 @@ const OrganizerHome = () => {
 
 
 
+
+
     return (
         <>
-             <div className="md:w-[90%] h-auto w-full  mx-auto ">
+       <div className="md:w-[90%] h-auto w-full  mx-auto  mb-20 ">
           <h1 className="text-3xl my-10 font-bold capitalize font-sans">Hi! Wellcome <span className="text-lime-400">{user ? user.displayName : 'to came Back' }</span> </h1>
           <div className="w-full md:flex justify-center mx-auto gap-5">
 
 
-             <div className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-amber-500 to-amber-100 ">
+             <div data-aos="fade-up"  className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-amber-500 to-amber-100 ">
               <FaUsers className="text-5xl rounded text-white"></FaUsers>
               <div className="text-white ">
                 <h1 className="text-2xl font-bold">{users?.length}</h1>
@@ -44,7 +49,7 @@ const OrganizerHome = () => {
               </div>
              </div>
 
-             <div className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-rose-500 to-rose-100 ">
+             <div  data-aos="fade-up"  data-aos-duration="1000" className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-rose-500 to-rose-100 ">
               <LuChefHat className="text-5xl rounded text-white"></LuChefHat>
               <div className="text-white ">
                 <h1 className="text-2xl font-bold">{camp?.length}</h1>
@@ -52,7 +57,7 @@ const OrganizerHome = () => {
               </div>
              </div>
 
-             <div className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-purple-500 to-purple-100 ">
+             <div  data-aos="fade-up"  data-aos-duration="2000" className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-purple-500 to-purple-100 ">
               <IoWalletSharp className="text-5xl rounded text-white"></IoWalletSharp>
               <div className="text-white ">
                 <h1 className="text-2xl font-bold"> 22 </h1>
@@ -60,7 +65,7 @@ const OrganizerHome = () => {
               </div>
              </div>
 
-             <div className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-blue-400 to-purple-100 ">
+             <div  data-aos="fade-up"  data-aos-duration="3000" className="flex justify-center items-center p-12 gap-5 rounded bg-gradient-to-r from-blue-400 to-purple-100 ">
               <FaCaravan className="text-5xl rounded text-white"></FaCaravan>
               <div className="text-white ">
                 <h1 className="text-2xl font-bold">44</h1>
@@ -72,6 +77,9 @@ const OrganizerHome = () => {
 
 
         </div>
+
+        <ManageInterestedCamp  ></ManageInterestedCamp>
+
         </>
     );
 };

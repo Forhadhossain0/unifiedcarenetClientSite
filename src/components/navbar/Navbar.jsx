@@ -117,7 +117,7 @@ return (
 {/* logo */}
 <div data-aos="fade-left"  data-aos-duration="3000"
     className=" md:navbar-start navbar-end  flex gap-2 cursor-pointer  ">
-    <img className=' h-auto lg:w-[40%] w-[160px]  ' src="https://i.ibb.co/DMbjvDg/logou.png" alt="logo" />
+    <img className=' h-auto lg:w-[40%] w-[160px]  ' src="https://i.ibb.co/Lpf1zF7/logo.png" alt="logo" />
 </div>
 
 {/* end */}

@@ -23,6 +23,9 @@ const PopularCamp = () => {
             setCamp(res?.data)
         })
     },[])
+
+    const popularCamps = camp?.filter(x=> x?.camprole === 'released')
+
     // console.log(camp)
 
     // const filterCamps = camp?.filter(x=> console.log(x?.participant))
@@ -35,7 +38,7 @@ const PopularCamp = () => {
 
 
        <div className="grid grid-cols-1 w-full md:w-[90%] mx-auto md:grid-cols-2 md:px-10 py-10 md:gap-16 gap-y-10 ">
-       {camp?.sort((a, b) => b?.participant - a?.participant).slice(0,6)?.map(camp=>
+       {popularCamps?.sort((a, b) => b?.participant - a?.participant).slice(0,6)?.map(camp=>
             <div data-aos="fade-up"    key={camp._id} className="w-full shadow p-10" >
                 <div className="relative w-full ">
                  <img className="w-full h-[300px]" src={camp.image} alt="" /> 
@@ -69,11 +72,18 @@ const PopularCamp = () => {
                 </div>
 
                 <div  className="flex justify-between items-end ">
+                   <div>
                    <div data-aos="fade-down-left" className="flex gap-2  items-center mt-2">
-                     <p className="capitalize underline text-blue-500 font-semibold">Total peticipent:</p>
-                     <h3 className="capitalize ">{camp?.participant || 0}</h3>
-                    </div>
-                   <Link data-aos="fade-down-left" to={`/campdetails/$ {camp._id}`}><button  className="text-center rounded mx-auto btn mt-3 bg-transparent hover:border text-accent btn-accent hover:text-white  uppercase ">KNOW MORE CAMP</button></Link>
+                        <p className="capitalize underline text-blue-500 font-semibold">Total peticipent:</p>
+                        <h3 className="capitalize ">{camp?.participant || 0}</h3>
+                     </div>
+                      <div data-aos="fade-down-left" className="flex gap-2  items-center mt-2">
+                        <p className="capitalize underline text-blue-500 font-semibold">Total professionals:</p>
+                        <h3 className="capitalize ">{camp?.professionals || 0}</h3>
+                     </div>
+                   </div>
+
+                   <Link data-aos="fade-down-left" to={`/campdetails/${camp._id}`}><button  className="text-center rounded mx-auto btn mt-3 bg-transparent hover:border text-accent btn-accent hover:text-white  uppercase ">KNOW MORE CAMP</button></Link>
                  </div>
 
             </div>

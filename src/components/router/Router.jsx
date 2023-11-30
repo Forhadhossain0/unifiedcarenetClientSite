@@ -26,6 +26,7 @@ import Feedback from "../dashboard/perticipent/feedback/Feedback ";
 import PaymentHistory from "../dashboard/perticipent/paymentHistory/PaymentHistory";
 import Payment from "../dashboard/perticipent/perticipentPayment/Payment";
 import ProfessionalsProfile from "../dashboard/health-profetionals/professionalsProfile/ProfessionalsProfile";
+import ManageInterestedCamp from "../dashboard/orginaization/manageInterestedCamp/ManageInterestedCamp";
 // import OrganizerRoute from "../dashboard/orginaization/organizerroute/OrganizerRoute";
 // professionals
 
@@ -130,6 +131,10 @@ const Router = createBrowserRouter([
         {
           path:'orgManageRegisterdCamp',
           element: <ManageRegisterdCamp></ManageRegisterdCamp>
+        },
+        {
+          path:'ManageInterestedCamp',
+          element: <ManageInterestedCamp></ManageInterestedCamp>
         },
         // ///////////////////////////// //
 

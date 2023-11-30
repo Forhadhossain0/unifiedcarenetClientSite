@@ -5,7 +5,8 @@ import { FaTachometerAlt } from "react-icons/fa";
 import { IoIosWallet } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { FiMenu } from "react-icons/fi";
-import { FaCalendarAlt, FaBook} from "react-icons/fa";
+// import { FaBook} from "react-icons/fa";
+import { FaCalendarAlt} from "react-icons/fa";
 import { RiPlayListAddFill } from "react-icons/ri"
 import { PiUsersThreeFill } from "react-icons/pi";
 import { IoIosListBox } from "react-icons/io";
@@ -68,21 +69,22 @@ return (
                         <NavLink to={'/dashboard/orgAddcamp'}><li><a className='  hover:text-[#ffffff]'><RiPlayListAddFill />Add Camp </a></li></NavLink> 
                         <NavLink to={'/dashboard/orgManagecamp'}><li><a className='  hover:text-[#ffffff]'><BiBook />Manage Camps</a></li></NavLink> 
                         <NavLink to={'/dashboard/orgManageRegisterdCamp'}><li><a className='  hover:text-[#ffffff]'><IoIosListBox />Registered Camps</a></li></NavLink> 
-                        <NavLink to={'/dashboard/orgAllusers'}><li><a className='  hover:text-[#ffffff]'><PiUsersThreeFill />All users</a></li></NavLink>
+                        <NavLink to={'/dashboard/ManageInterestedCamp'}><li><a className='  hover:text-[#ffffff]'><IoIosListBox />Manage Interested </a></li></NavLink> 
+                        <NavLink to={'/dashboard/orgAllusers'}><li><a className=' pb-8 hover:text-[#ffffff]'><PiUsersThreeFill />All users</a></li></NavLink>
                         </>
 
         : isProfessionals ? <>
                         <NavLink to={'/dashboard/proHome'}><li><a className='  hover:text-[#ffffff]'><FaTachometerAlt />Professionals Home</a></li></NavLink>
-                        <NavLink to={'/dashboard/Reservation'}><li><a className='  hover:text-[#ffffff]'><FaCalendarAlt  />reservation</a></li></NavLink> 
-                        <NavLink to={'/dashboard/paymenthistory'}><li><a className='  hover:text-[#ffffff]'><IoIosWallet />payment history</a></li></NavLink> 
-                        <NavLink to={'/dashboard/Bookings'}><li><a className=' mb-5 hover:text-[#ffffff]'><FaBook/>my bookings</a></li></NavLink>
+                        {/* <NavLink to={'/dashboard/Reservation'}><li><a className='  hover:text-[#ffffff]'><FaCalendarAlt  />reservation</a></li></NavLink>  */}
+                        {/* <NavLink to={'/dashboard/paymenthistory'}><li><a className='  hover:text-[#ffffff]'><IoIosWallet />payment history</a></li></NavLink>  */}
+                        {/* <NavLink to={'/dashboard/Bookings'}><li><a className=' mb-5 hover:text-[#ffffff]'><FaBook/>my bookings</a></li></NavLink> */}
                         </>
 
                       : <>
-                        <NavLink to={'/dashboard/userHome'}><li><a className='  hover:text-[#ffffff]'><FaTachometerAlt />participant profile</a></li></NavLink>
+                        <NavLink to={'/dashboard/userHome'}><li><a className=' hover:text-[#ffffff]'><FaTachometerAlt />participant profile</a></li></NavLink>
                         <NavLink to={'/dashboard/UserRegisterdCamp'}><li><a className='  hover:text-[#ffffff]'><FaCalendarAlt  />Registered Camps</a></li></NavLink> 
                         <NavLink to={'/dashboard/userPaymentHistory'}><li><a className='  hover:text-[#ffffff]'><IoIosWallet />payment history</a></li></NavLink> 
-                        <NavLink to={'/dashboard/userFeedback'}><li><a className='  hover:text-[#ffffff]'><MdFeedback/>add review</a></li></NavLink>
+                        <NavLink to={'/dashboard/userFeedback'}><li><a className=' pb-5 hover:text-[#ffffff]'><MdFeedback/>add review</a></li></NavLink>
                         </>
            }   
 
@@ -90,7 +92,7 @@ return (
 
 
              {/* my main nav contenet don't change it  */}
-            <span className="border-b  ml-4 pt-2  "></span>
+            <span className="border-b  ml-4  pt-2  "></span>
             <NavLink to={'/'}><li><a className=' rounded-none hover:text-[#ffffff]'><GoHome></GoHome>Home</a></li></NavLink>
             <NavLink to={'/availablecamp'}><li><a className='  hover:text-[#ffffff]'><FiMenu/>Available Camps</a></li></NavLink>
             <NavLink to={'/contact'}><li><a className='  hover:text-[#ffffff]'><MdEmail/>CONTACT</a></li></NavLink>

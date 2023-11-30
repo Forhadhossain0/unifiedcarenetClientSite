@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import useAuth from "../custoomhooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../custoomhooks/useAxiosSecure";
+import { useEffect, useState } from "react";
 
 const Campdetails = () => {
 
@@ -19,21 +20,24 @@ const Campdetails = () => {
   const axiosSecure= useAxiosSecure()
  
 
-  
   const {data:hasAllUsers}  = useQuery({
-    queryKey:['hasAllUsers'],
-    queryFn: async() =>{
-        const res = await axiosSecure.get('/users')
-        return res.data
-    }
-  }) 
-  const normalUser =  hasAllUsers?.filter(dbuser=> !(dbuser.role) )
-  console.log(normalUser)
-
-
-  const handleInfoPostOnDB = (e) =>{
-    e.preventDefault(); 
-    const fullName = e.target.name.value;
+      queryKey:['hasAllUsers'],
+      queryFn: async() =>{
+          const res = await useAxiosSecure.get('/users')
+          return res.data
+      }
+    }) 
+    const nowUserEmail = hasAllUsers?.filter(x=> (x.email) === user?.email )
+    const uRole = nowUserEmail?.find(x => x.role === 'perticipent') !== undefined;
+    const pRole = nowUserEmail?.find(x => x.role === 'professionals') !== undefined;  
+    
+    let upcoming = '';
+    if( camp?.camprole === 'upcoming'){ upcoming = 'on upcoming'}
+    
+    // normal user join button
+    const handleInfoPostOnDB = (e) =>{
+      e.preventDefault(); 
+      const fullName = e.target.name.value;
     const phoneNumber = e.target.number.value;
     
     const perticipentInfo = {fullName,phoneNumber,email}  
@@ -44,24 +48,93 @@ const Campdetails = () => {
       console.log(res?.data)
       if(res?.data?.insertedId){
         axiosSecure.patch(`/camp/perticipentCount/${camp._id}`,  { participant: parseFloat(camp?.participant) }) 
-              .then(res=> {console.log(res?.data)})
-
-             Swal.fire({ title: "success!", text: "Your Perticipent request  has been send.",  icon: "success"  }
+        .then(res=> {console.log(res?.data)})
+        
+        Swal.fire({ title: "success!", text: "Your Perticipent request  has been send.",  icon: "success"  }
         );}else{ 
                                    Swal.fire({
                                      title: "error!",
                                      text: "Somthing want wrong! ",
                                      icon: "error"
-                                   });}
-    })
+                                    });}
+                                  })
 
-    const modal = document.getElementById('my_modal_3');
-    if (modal) {
+                                  const modal = document.getElementById('my_modal_3');
+                                  if (modal) {
       modal.close();
     }
+    
+  }
   
+  
+  const [professionals,setProfessionals] = useState([]);
+  useEffect(()=>{
+    axiosSecure.get('/professionalsBio')
+    .then(res=>{
+      // console.log(res)
+      setProfessionals(res?.data)
+    })
+  },[])
+ 
+  const professionalsBio = professionals?.filter(x=> x.primaryEmail === user.email )
+  console.log(professionalsBio)
+
+
+
+  let interest = 'accept'
+  const campData = {
+           _id:camp._id, 
+           campname:camp.campname, 
+           campfee: camp.campfee,
+           venuelocation:camp.venuelocation,
+           description:camp.description,
+           details:camp.details, 
+           healthcareProfessionals:camp.healthcareProfessionals,
+           specializedservices:camp.specializedservices,  
+           targetaudience:camp.targetaudience, 
+           scheduleddatetime:camp.scheduleddatetime, 
+           image: camp.image,
+           camprole: camp.camprole,
+           participant: camp.participant,
+           interest : interest,        
   }
 
+ 
+
+  
+// professional interest button
+  const handleProfessionalsInterest= (id)=>{
+    console.log(id)
+
+    Swal.fire({
+      title: "Are you interested on this camp?",
+      text: "You won't be able to retrun this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, want to join !"
+    }).then( async(result) => {
+      if (result.isConfirmed){ 
+        
+        
+        axiosSecure.post('/professionalsInterest',{campData,professionalsBio})
+        .then(res=> {
+          if(res?.data?.insertedId){
+            console.log(res?.data.insertedId, 'posted completed')
+          }
+          
+          // patch to camp collection 
+        let professionals = 0;
+        axiosSecure.patch(`/camp/professionalsCount/${id}`,  { professionals: parseFloat(professionals) }) 
+        .then(res=> {console.log(res?.data, 'professionalsCountPatch')})
+        })
+         
+      }
+
+    })
+
+  }
 
     return (
      <>
@@ -109,17 +182,20 @@ const Campdetails = () => {
                   <p className="capitalize underline text-blue-500 font-semibold">Total peticipent:</p>
                   <h3 className="capitalize "> {camp?.participant || 0}</h3>
                 </div>
-
-            {/* <button onClick={()=>{document.getElementById('my_modal_3').showModal()}} 
-                   disabled={ isOrganizer===true || isProfessionals===true }  className={ " w-56 text-center mx-auto btn mt-4  hover:bg-transparent hover:border-2 hover:text-rose-500 btn-info hover:border-rose-500 border-rose-500 bg-rose-500 text-white rounded uppercase "} >
-              JOIN CAMPIGION
-            </button> */}
+                <div className="flex gap-2  items-center mt-2">
+                  <p className="capitalize underline text-blue-500 font-semibold">Total professionals:</p>
+                  <h3 className="capitalize "> {camp?.professionals || 0}</h3>
+                </div>
             
-            <button onClick={()=>{document.getElementById('my_modal_3').showModal()}} 
-                disabled={!normalUser}   className={ " w-56 text-center mx-auto btn mt-4  hover:bg-transparent hover:border-2 hover:text-rose-500 btn-info hover:border-rose-500 border-rose-500 bg-rose-500 text-white rounded uppercase "} >
-              JOIN CAMPIGION
-            </button>
-
+                { uRole &&   <button onClick={()=>{document.getElementById('my_modal_3').showModal()}} 
+                   className={ " w-56 text-center mx-auto btn mt-4  hover:bg-transparent hover:border-2 hover:text-rose-500 btn-info hover:border-rose-500 border-rose-500 bg-rose-500 text-white rounded uppercase "} >
+                   JOIN CAMPIGION </button>
+                }
+                
+                { pRole &&   <button onClick={()=>{handleProfessionalsInterest(camp?._id)}} 
+                   className={ " w-70 text-center mx-auto btn mt-4  hover:bg-transparent hover:border-2 hover:text-rose-500 btn-info hover:border-rose-500 border-rose-500 bg-rose-500 text-white rounded uppercase "} >
+                   interested  {upcoming} camp </button>
+                }
           
         </div>
     </div>

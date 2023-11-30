@@ -50,8 +50,7 @@ const handleGoogle = () =>{
       axiosPublic.post(`/users`,user)
       .then((res)=>{
         console.log(res)
-        // navigate(from , {replace : true})
-        navigate(from || '/', { replace: true });
+        navigate(from , {replace : true})
       })
     
      })

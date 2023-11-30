@@ -23,7 +23,7 @@ const AvailableCamp = () => {
         .then(res=>{
             setCamp(res.data)
         })
-    },[axiosPublic])
+    },[])
     console.log(camp)
 
 
@@ -64,9 +64,9 @@ AOS.init()
     return (
         <>
      
-        <div data-aos="fade-down" className=" bg-cover bg-center bg-[url('https://img.pikbest.com/backgrounds/20190627/blue-pills-simple-medical-banner-background_1896626.jpg!bw700')] ">
+        <div className=" bg-cover bg-center bg-[url('https://img.pikbest.com/backgrounds/20190627/blue-pills-simple-medical-banner-background_1896626.jpg!bw700')] ">
           <div className="bg-[#75cbd69f] pt-24 h-80 w-full flex items-center ">
-            <div data-aos="fade-left">
+            <div>
             <h1 className=" md:pl-20 pl-5 my-auto font-bold text-[#1d1d1d] ">Home/Available-Campaign</h1>
              <h1 className="text-2xl md:w-[60%] md:pl-20 pt-4 pl-5 my-auto font-semibold text-white  ">Our all Campaign list and services available here . . . </h1>
            </div>
@@ -77,9 +77,9 @@ AOS.init()
              <p className="pb-10 text-rose-400 capitalize text-center mx-auto w-1/2">explore more to get and Joined us we are always with around you ⭐</p>
 
   {/* seerch and sort field and button */}
-    <div data-aos="fade-up" className="flex px-10 mx-auto">
-      <input type="text"  placeholder="Search by Camp Name"  value={searchTerm} onChange={handleSearch} className="border p-2 m-2" />
-      <button onClick={handleSort} className="border px-4  text-teal-500 font-serif py-2 m-2">  sort by campname {sortOrder === 'asc' ? 'a-z' : 'z-a'} </button>
+    <div className="flex px-10 mx-auto">
+      <input type="text"  placeholder="Search by Camp Name"  value={searchTerm} onChange={handleSearch} className="border rounded p-2 m-2" />
+      <button onClick={handleSort} className="border px-4 hover:text-rose-400 text-teal-500 font-serif py-2 m-2">  sort by campname {sortOrder === 'asc' ? 'a-z' : 'z-a'} </button>
     </div>
 
     {/* camps */}
@@ -92,7 +92,7 @@ AOS.init()
                  <div className=" bg-[rgba(0,0,0,0.51)] hover:bg-transparent transition-all flex items-center w-full h-full  pl-5  absolute bottom-0">
                       <h3 data-aos="fade-right" className="md:w-[90%] text-4xl font-bold text-white ">{camp.campname}</h3>
                 </div>
-                 <div data-aos="fade-down-left"  data-aos-duration='2000' className=" justify-between  font-bold  bg-[rgba(47,119,97,0.6)]  flex items-end w-full h-20   absolute bottom-0">
+                 <div data-aos="fade-left"  data-aos-duration='2000' className=" justify-between  font-bold  bg-[rgba(47,119,97,0.6)]  flex items-end w-full h-20   absolute bottom-0">
                       <div className="pl-2 py-3 ">
                        <h3 className="text-sky-400 flex items-center text-sm "><IoLocationOutline></IoLocationOutline> {camp.venuelocation} </h3>
                        <h3 className="underline text-white">Join Us : ${camp.campfee} Camp Fee</h3>
@@ -126,7 +126,7 @@ AOS.init()
 
                 </div>
 
-              <Link  to={`/campdetails/${camp._id}`}><button data-aos="fade-left" className="text-center mx-auto btn mt-2 mb-5  hover:bg-transparent hover:border hover:text-accent btn-info text-white rounded uppercase ">KNOW MORE</button></Link>
+              <Link to={`/campdetails/${camp._id}`}><button className="text-center mx-auto btn mt-2 mb-5  hover:bg-transparent hover:border hover:text-accent btn-info text-white rounded uppercase ">KNOW MORE</button></Link>
           
             </div>
 
