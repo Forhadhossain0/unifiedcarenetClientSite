@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
 import useAuth from "../../../custoomhooks/useAuth";
 import { Link } from "react-router-dom";
 import { FaMoneyCheck } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 
 const RegisteredCamps = () => {
@@ -58,6 +59,9 @@ const RegisteredCamps = () => {
 
     return (
     <div>
+
+<Helmet><title>Unified || Registered-Camp</title></Helmet>
+
             <div className=" py-5 items-center flex justify-between mb-10 px-16 bg-[#42d1e4a9]  ">
                <h1 className="text-sm capitalize font-serif text-white font-bold ">Dashboard/RegisteredCamps (My Camps : {filterCamp?.length})</h1>
                <h1 className="text-lg  capitalize text-white font-serif  ">update delete your campaign details to manage camp informations.</h1>

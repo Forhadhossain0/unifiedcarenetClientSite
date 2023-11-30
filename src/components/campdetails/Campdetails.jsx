@@ -9,6 +9,7 @@ import useAuth from "../custoomhooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../custoomhooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Campdetails = () => {
 
@@ -138,7 +139,7 @@ const Campdetails = () => {
 
     return (
      <>
-
+           <Helmet><title>Unified || CampDetails</title></Helmet>
 
              <div className="mt-20  border px-10 py-2  ">
              <h1 className=" text-black  font-bold ">Camp/CampDetails </h1>

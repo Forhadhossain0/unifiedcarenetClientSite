@@ -3,6 +3,7 @@ import { CiSquareQuestion } from "react-icons/ci";
 import { IoMdDoneAll } from "react-icons/io";
 import useAuth from "../../../custoomhooks/useAuth";
 import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 
 const PaymentHistory = () => {
@@ -23,6 +24,8 @@ console.log(payment)
 
 return (
     <div className="md:px-20 pt-12 w-full h-full">
+  
+  <Helmet><title>Unified || Payment-History</title></Helmet>
   
         <h1 className="text-xl capitalize  border-b-2 pb-1 mb-5 ml-5 w-[40%]  text-teal-500 py-6 font-semibold">Total completed & Pending payment  : {payment?.length}</h1>
 

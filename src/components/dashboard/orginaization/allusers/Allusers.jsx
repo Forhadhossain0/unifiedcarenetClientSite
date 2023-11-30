@@ -4,6 +4,7 @@ import { PiUsersThreeFill } from "react-icons/pi";
 import { FaUserMd } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 
 const Allusers = () => {
@@ -106,6 +107,9 @@ const {data:hasAllUsers, refetch}  = useQuery({
 
     return (
         <div className="md:px-20">
+
+<Helmet><title>Unified || All-Users</title></Helmet>
+
             <div className="flex justify-between px-5 py-10">
                <h1 className="text-xl capitalize font-semibold">Total Users : {hasAllUsers?.length}</h1>
             </div>

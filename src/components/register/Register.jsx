@@ -5,6 +5,7 @@ import useAuth from "../custoomhooks/useAuth";
 import useAxiosPublic from "../custoomhooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 
@@ -52,6 +53,7 @@ const Register = () => {
     return (
         <div className="md:h-[100vh] h-auto  w-full   ">
 
+   <Helmet><title>Unified || Register</title></Helmet>
 
      <section className="md:flex bg-right bg-contain  bg-no-repeat bg-[url('https://img.freepik.com/free-vector/wave-background_53876-115944.jpg?w=740&t=st=1700853752~exp=1700854352~hmac=a4f74203716459b002b83990d8b339762879053ee47d542999a42d1686aecdba')] gap-20 justify-between p-20  items-center h-full w-full">
      {/* <section className="md:flex  gap-20 justify-between p-20  items-center h-full w-full"> */}

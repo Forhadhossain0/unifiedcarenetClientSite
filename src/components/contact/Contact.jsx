@@ -3,12 +3,13 @@ import { IoCallOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
     AOS.init()
     return (
         <div className="h-auto  w-full   ">
-
+                   <Helmet><title>Unified || Contact</title></Helmet>
 
                 <div>
                     <div data-aos="fade-up" data-aos-duration='2000' className="flex pt-20 px-20 justify-between bg-no-repeat bg-cover bg-[url('https://img.freepik.com/premium-photo/portrait-beautiful-young-woman-with-blond-hair-medical-uniformgenerative-ai_221128-8819.jpg?w=826')]  items-center">

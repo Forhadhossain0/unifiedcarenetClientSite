@@ -8,6 +8,7 @@ import useAuth from "../../../custoomhooks/useAuth";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ManageInterestedCamp from "../manageInterestedCamp/ManageInterestedCamp";
+import { Helmet } from "react-helmet";
 
 
 const OrganizerHome = () => {
@@ -36,6 +37,9 @@ const OrganizerHome = () => {
 
     return (
         <>
+
+<Helmet><title>Unified || Organizer-Home</title></Helmet>
+
        <div className="md:w-[90%] h-auto w-full  mx-auto  mb-20 ">
           <h1 className="text-3xl my-10 font-bold capitalize font-sans">Hi! Wellcome <span className="text-lime-400">{user ? user.displayName : 'to came Back' }</span> </h1>
           <div className="w-full md:flex justify-center mx-auto gap-5">

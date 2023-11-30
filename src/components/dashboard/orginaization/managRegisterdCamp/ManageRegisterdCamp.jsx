@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
 import { CiSquareQuestion } from "react-icons/ci";
 import { IoMdDoneAll } from "react-icons/io";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 // import useAuth from "../../../custoomhooks/useAuth";
 
 
@@ -53,7 +54,9 @@ const handlePaymentStatus = (id)=>{
 
 return (
     <div className="md:px-20">
-  
+    
+    <Helmet><title>Unified ||  Manage-Registerd-Camp </title></Helmet>
+    
         <h1 className="text-xl capitalize p-6 font-semibold">BOOKING TIME  : {payment?.length} times</h1>
 
         <div className="overflow-x-auto md:px-5">

@@ -8,6 +8,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineAccessTime } from "react-icons/md";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from "react-helmet";
 
 const AvailableCamp = () => {
 
@@ -63,7 +64,8 @@ const AvailableCamp = () => {
 AOS.init()
     return (
         <>
-     
+        <Helmet><title>Unified || AvailableCamp</title></Helmet>
+
         <div className=" bg-cover bg-center bg-[url('https://img.pikbest.com/backgrounds/20190627/blue-pills-simple-medical-banner-background_1896626.jpg!bw700')] ">
           <div className="bg-[#75cbd69f] pt-24 h-80 w-full flex items-center ">
             <div>

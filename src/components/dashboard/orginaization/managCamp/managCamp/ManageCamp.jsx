@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 import {  FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const ManageCamp = () => {
@@ -53,6 +54,9 @@ const ManageCamp = () => {
 
     return (
     <div>
+
+<Helmet><title>Unified || ManageCamp</title></Helmet>
+
             <div className=" py-5 items-center flex justify-between mb-10 px-16 bg-[#42d1e4a9]  ">
                <h1 className="text-sm capitalize font-serif text-white font-bold ">Dashboard/ManagCamp (Total Camps : {camp?.length})</h1>
                <h1 className="text-lg  capitalize text-white font-serif  ">update delete your campaign details to manage camp informations.</h1>

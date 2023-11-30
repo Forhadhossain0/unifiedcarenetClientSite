@@ -8,6 +8,7 @@ import { FaGoogle} from "react-icons/fa";
 import { useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from "react-helmet";
 
 
 
@@ -59,6 +60,8 @@ const handleGoogle = () =>{
   AOS.init()
     return (
         <div className="md:h-[100vh] h-auto  w-full   ">
+
+   <Helmet><title>Unified || Login</title></Helmet>
 
 
      <section  data-aos="fade-up"  className="md:flex bg-right bg-contain  bg-no-repeat bg-[url('https://img.freepik.com/free-vector/wave-background_53876-115944.jpg?w=740&t=st=1700853752~exp=1700854352~hmac=a4f74203716459b002b83990d8b339762879053ee47d542999a42d1686aecdba')] gap-20 justify-between p-20  items-center h-full w-full">

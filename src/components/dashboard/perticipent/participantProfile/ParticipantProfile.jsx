@@ -7,6 +7,7 @@ import { LuChefHat } from "react-icons/lu";
 import { FaCaravan } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const ParticipantProfile = () => {
@@ -56,6 +57,7 @@ const ParticipantProfile = () => {
 
     <div className="bg-[url('https://t4.ftcdn.net/jpg/05/42/73/17/360_F_542731787_npIDENXs9NMkl1mtyHKj8De2WBL2vnFW.jpg')] cursor-pointer bg-no-repeat bg-cover w-full md:flex justify-between   h-full ">
 
+<Helmet><title>Unified || Participant-Profile</title></Helmet>
         <div  className=" h-[100vh] lg:px-20 py-10   w-full  ">
            
             <Link to={'/contact'} >

@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from 'react-helmet';
 
 
 const ProfessionalsProfile = () => {
@@ -93,6 +94,8 @@ console.log(professionalsInterest , 'professionalsInterest')
 
   return (
     <div className=" h-full bg-white ">
+
+    <Helmet><title>Unified || ProfessionalsProfile</title></Helmet>
 
       <div data-aos="fade-up"  data-aos-duration="3000" className="flex items-center justify-center mx-auto  w-full  p-20  ">
        

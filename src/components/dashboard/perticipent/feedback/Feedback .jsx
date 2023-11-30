@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 import useAxiosPublic from "../../../custoomhooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useAuth from "../../../custoomhooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const colors = {
     orange: "#FFBA5A",
@@ -62,6 +63,8 @@ const handleSubmit = (e) =>{
 
     return (
         <div>
+             <Helmet><title>Unified || Reviews</title></Helmet>
+
             <div className="w-[70%]  mx-auto mt-5 py-16 px-32 bg-[#fffdfd]">
             <h1 className="text-3xl  font-bold text-center">Rate US!</h1>
 

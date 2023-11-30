@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../custoomhooks/useAxiosPublic";
 import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 const img_host_key = import.meta.env.VITE_IMAGEBB_HOST_KEY;
@@ -64,7 +65,7 @@ const AddCamp = () => {
   return (
     <>
 
-
+<Helmet><title>Unified || Add-Camp</title></Helmet>
 
   <div className=" relative p-10 min-h-screen ">
   <div className="  bg-[#ffffff] ">

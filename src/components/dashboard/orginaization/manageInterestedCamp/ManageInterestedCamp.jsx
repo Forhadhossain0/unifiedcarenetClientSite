@@ -7,6 +7,7 @@ import useAxiosSecure from "../../../custoomhooks/useAxiosSecure";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const ManageInterestedCamp = () => {
     AOS.init()
@@ -83,6 +84,10 @@ console.log(professionalsInterest , 'professionalsInterest')
 
     return (
         <div data-aos="fade-left"  data-aos-duration="3000" className=" bg-[white] mx-auto mt-5  w-[95%] pb-10">
+            
+            <Helmet><title>Unified || Interested-Camp</title></Helmet>
+            
+            
             <div className="flex justify-between px-5 py-10">
                <h1 className="text-xl capitalize text-gray-500 rounded-md font-semibold">Total professionals get Interested camps  : {professionalsInterest?.length}</h1>
             </div>
